@@ -1,0 +1,234 @@
+*{
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+html{
+  background: #484a47;
+  /*background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAAPElEQVQYlWOIior67+bmRhAzuLm5/SdGMQOMQUgxAzIHphibJgZ0AVwmk28iLpNxKkRXjFchsmKCCmGKAV6puHUHcIwfAAAAAElFTkSuQmCC
+    )repeat;
+  /*background:#7FDBFF;
+  background: linear-gradient(90deg, rgba(15,0,99,1) 0%, rgba(0,215,255,1) 86%);
+*/
+}
+.wrapper{
+  display: grid;
+  height: 100vh;
+  width: 100vw;
+
+  grid-template-columns: 1.1fr 1.8fr 1fr;
+  grid-template-rows: 0.25fr 1.5fr 0.75fr;
+  grid-gap: 15px;
+  grid-template-areas: "header header header"
+  "game autos information"
+  "upgrades upgrades information";
+
+}
+.header{
+  grid-area: 1 / 1 / 2 / 5;
+  font: 600 30px Arial;
+  text-align: center;
+  background: #777777;
+  background: #969696;
+  color:#FFFFFF;
+  padding: .3em;
+  margin-top: auto;
+  margin-bottom: auto;
+  border: 2px solid rgba(0,0,0,0.8);
+  border-radius: 3px;
+}
+.game{
+  grid-area: game;
+  background: #777777;
+  color:#F2F2F2;
+  border: 2px solid rgba(0,0,0,0.8);
+  border-radius: 3px;
+  margin-left:12px;
+}
+.game-bar{
+  text-align: center;
+  height: 10%;
+  width: 65%;
+  margin-left: auto;
+  margin-right: 30%;
+  margin-top: .3em;
+  background: rgba(0,0,0,0.23);
+  border: 1px solid rgba(0,0,0,0.4);
+  border-radius: 5px;
+  font: 400 20px Arial;
+  overflow-x: hidden;
+}
+.worker_prod_fix{
+  display:inline;
+}
+.autos{
+  display: grid;
+  grid-area: autos;
+  grid-gap: 12px;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr;
+  grid-template-areas:
+  "level1 level2"
+}
+.level1 { grid-area: 1 / 1 / 2 / 2;
+  background: #777777;
+  color:#F2F2F2;
+  border: 2px solid rgba(0,0,0,0.8);
+  border-radius: 3px;
+}
+.autobar{
+  /*background: rgba(0,0,0,0.23); */
+  border-bottom: 3px solid rgba(0,0,0,0.7);
+  color:#F2F2F2;
+}
+#autobar_cost{
+  font: 400 22px Arial;
+  margin: .3em;
+}
+#autobar_bought{
+  float:right;
+  font: 400 22px Arial;
+  margin-right: .3em;
+}
+.auto_buttons{
+  padding:.5em;
+  text-align: center;
+  font: 400 16px Arial;
+  border: 1px solid rgba(0,0,0,0.8);
+  border-radius: 3px;
+  background: #AAAAAA;
+  color:#F2F2F2;
+  margin: .5em;
+  margin-left: 10%;
+  width:60%;
+}
+.auto_buttons:hover{
+  background-color:#bbbbbb;
+  border-color:rgba(0,0,0,0.6);
+  transform: scale(1.015);
+}
+.level2 { grid-area: 1 / 2 / 2 / 3;
+  background: #777777;
+  color:#F2F2F2;
+  border: 2px solid rgba(0,0,0,0.8);
+  border-radius: 3px;
+
+}
+
+
+.information{
+  display: grid;
+  grid-area: information;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr 1fr;
+  grid-gap: 1px 1px;
+  background: #777777;
+  color:#F2F2F2;
+  grid-template-areas: "info1" "info2";
+  border: 2px solid rgba(0,0,0,0.8);
+  border-radius: 3px;
+  margin-bottom: 12px;
+
+}
+
+.info1 {
+  grid-area: info1;
+
+}
+#canvas1{
+  border: 1px solid black;
+}
+.info2 {
+  grid-area: info2;
+}
+
+.upgrades {
+  grid-area: upgrades;
+  background: #777777;
+  color:#F2F2F2;
+  border: 2px solid rgba(0,0,0,0.8);
+  border-radius: 3px;
+  margin-left: 12px;
+  margin-bottom: 12px;
+}
+.upgrade_btn_group{
+  display:block;
+}
+
+#current_workers{
+  display: inline-block;
+  color:#F2F2F2;
+}
+#insufficient_funds{
+  visibility: hidden;
+  width: 100%;
+  padding: 15px;
+  background: #393939;
+  color: #FFFFFF;
+  text-align: center;
+  border-top: 5px solid #9f1b19;
+  bottom:0px;
+  position:fixed;
+  font-family:roboto,verdana;
+  font-size: 18px;
+}
+
+#insufficient_funds.show{
+  visibility: visible;
+  -webkit-animation: fadein .2s, fadeout .2s 2.8s;
+  animation: fadein .2s, fadeout .2s 2.8s;
+}
+
+@-webkit-keyframes fadein{
+  from {
+    bottom: -30px;
+    opacity: 0;
+  }
+  to {
+    bottom: 0px;
+    opacity: 1;
+  }
+}
+@keyframes fadein {
+  from {
+    bottom: -30px;
+    opacity: 0;
+  }
+  to {
+    bottom: 0px;
+    opacity: 1;
+  }
+}
+@-webkit-keyframes fadeout{
+  from {
+    bottom: 0px;
+    opacity: 1;
+  }
+  to {
+    bottom: -30px;
+    opacity: 0;
+  }
+}
+@keyframes fadeout {
+  from {
+    bottom: 0px;
+    opacity: 1;
+  }
+  to {
+    bottom: -30px;
+    opacity: 0;
+  }
+}
+/*.autobutton{
+  position: absolute;
+  padding: .4em 1.3em;
+  border:0.1em solid #5b5b5b;
+  left:.6%;
+  border-radius: 15px;
+  box-sizing: border-box;
+  background-color:#AAAAAA;
+  font: 400 28px Arial;
+  color:black;
+  text-align: center;
+  cursor:auto;
+} */

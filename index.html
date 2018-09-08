@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" contents="width=device-width">
+    <meta name="keywords" conent="clicker, clickergame, clicker game,
+    idle, idlegame, idle game, incremental, incremental game">
+    <title>Game</title>
+    <link rel="stylesheet" type="text/css" href= "public/css/style.css">
+
+  </head>
+  <body>
+    <div class="wrapper">
+
+      <div class = "header">
+        Business
+      </div>
+      <div class = game>
+        <div class = game-bar id="gm1">
+          Money:
+          <div id ="gamebar-money">100</div>
+        </div>
+        <div class="game-bar" id="gm2">
+          Money per Second:
+          <div id="gamebar-mps">0</div>
+        </div>
+        <div class="game-bar" id="gm3">
+        Workers Productivity:
+        <br>
+        %
+        <span id="gamebar-prod"></span>
+      </div>
+      <div class="game-bar" id="gm4">
+      </div>
+      <div class="game-bar" id="gm4">
+      </div>
+
+      </div>
+      <div class = autos>
+        <div class="level1">
+          <div class="autobar">
+            <span id="autobar_cost">Cost</span>
+
+            <span id="autobar_bought">Bought</span>
+          </div>
+
+          <div class ="auto_button1">
+            <span>$</span>
+            <span id ="worker_cost">50</span>
+
+            <button type="button" onclick="workerClick()" class="auto_buttons"
+            id="office_worker_button">Office Worker</button>
+
+            <span id ="current_workers">0</span>
+          </div>
+
+          <div class ="auto_button2">
+            <span>$</span>
+            <span id ="office_manager_cost">0</span>
+
+            <button type="button" class="auto_buttons"
+            id="office_manager_button">Office Manager</button>
+
+            <span id ="current_office_managers">0</span>
+          </div>
+
+          <div class ="auto_button3">
+            <span>$</span>
+            <span id ="office_admin_cost">0</span>
+
+            <button type="button" class="auto_buttons"
+            id="office_admin_button">Office Administrator</button>
+
+            <span id ="current_office_admins">0</span>
+          </div>
+
+          <div class ="auto_button4">
+            <span>$</span>
+            <span id ="ceo_cost">0</span>
+
+            <button type="button" class="auto_buttons"
+            id="ceo_button">CEO</button>
+
+            <span id ="current_ceos">0</span>
+          </div>
+        </div>
+
+        <div class="level2">
+        </div>
+      </div>
+
+      <div class = information>
+        <div class="info1">
+          <div class="info_canvas">
+            <canvas id="canvas1"></canvas>
+          </div>
+        </div>
+
+        <div class="info2">
+        </div>
+
+      </div>
+
+      <div class = upgrades>
+        <div class="upgrade_btn_group">
+        </div>
+      </div>
+
+      <div id="insufficient_funds">You cannot afford that!</div>
+
+    </div>
+  </body>
+  <script type="text/javascript" src="public/scripts/game.js"></script>
+</html>
