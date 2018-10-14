@@ -101,6 +101,7 @@ html{
   margin: .5em;
   margin-left: 10%;
   width:60%;
+  outline:none;
 }
 .auto_buttons:hover{
   background-color:#bbbbbb;

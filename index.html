@@ -48,7 +48,7 @@
             <span>$</span>
             <span id ="worker_cost">50</span>
 
-            <button type="button" onclick="workerClick()" class="auto_buttons"
+            <button type="button" onclick="buyAuto('worker')" class="auto_buttons"
             id="office_worker_button">Office Worker</button>
 
             <span id ="current_workers">0</span>
@@ -58,7 +58,7 @@
             <span>$</span>
             <span id ="office_manager_cost">0</span>
 
-            <button type="button" class="auto_buttons"
+            <button type="button" onclick="buyAuto('manager')" class="auto_buttons"
             id="office_manager_button">Office Manager</button>
 
             <span id ="current_office_managers">0</span>
@@ -66,10 +66,10 @@
 
           <div class ="auto_button3">
             <span>$</span>
-            <span id ="office_admin_cost">0</span>
+            <span id ="operations_manager_cost">0</span>
 
-            <button type="button" class="auto_buttons"
-            id="office_admin_button">Office Administrator</button>
+            <button type="button" onclick="buyAuto('opmanager')" class="auto_buttons"
+            id="office_admin_button">Operations Manager</button>
 
             <span id ="current_office_admins">0</span>
           </div>
@@ -78,7 +78,7 @@
             <span>$</span>
             <span id ="ceo_cost">0</span>
 
-            <button type="button" class="auto_buttons"
+            <button type="button" onclick="buyAuto('ceo')" class="auto_buttons"
             id="ceo_button">CEO</button>
 
             <span id ="current_ceos">0</span>

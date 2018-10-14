@@ -1,27 +1,25 @@
-// everything is broken and the money is equal to the worker cost
-
-
-
-var money = 375;
+var money = 500;
 var fixed_money =0;
 var money_per_second = 0;
-
-var workers = 0;
-var managers = 0;
-var admins = 0;
-var ceos = 0;
+var fix_money_gain = 0;
 
 var worker_money_gain = 5;
 var fix_worker_money_gain;
 
-var worker_efficiency = .05;
-
-var worker_inflation = 1.18;
-
-var js_worker_cost = 50;
-var js_manager_cost = 1000;
-var js_admin_cost = 25000;
-var js_ceo_cost = 150000;
+var autos = {
+  "worker": //auto 1
+  {"gain":5, "price":50,
+  "inflation":1.18, "efficiency": .05, "amt":0},
+  "manager": //auto 2
+  {"gain":10, "price":125,
+  "inflation":1.18,  "efficiency": .05, "amt":0},
+  "opmanager": //auto 3
+  {"gain":20, "price":250,
+  "inflation":1.18,  "efficiency": .05, "amt":0},
+  "ceo": //auto 4
+  {"gain":30, "price":1000,
+  "inflation":1.18, "efficiency": .05, "amt":0}
+};
 
 function prettyNumbers(number){ //stores true money value, outputs pretty value
   if (number % 1 !== 0){
@@ -30,6 +28,20 @@ function prettyNumbers(number){ //stores true money value, outputs pretty value
     //return (Math.floor(number));
   } else{
     return number;
+  }
+}
+
+function buyAuto(name){
+  if(money >= autos[name].price){
+    money -= autos[name].price;
+    autos[name].amt += 1;
+    fix_money_gain = efficiency(autos[name].gain ,autos[name].efficiency);
+    autos[name].price = inflation(autos[name].price ,autos[name].inflation);
+    console.log("NEW PRICE"+autos[name].price);
+    money_per_second += fix_money_gain
+  }
+  else {
+    cantBuyToast();
   }
 }
 
@@ -44,7 +56,7 @@ function workerClick() {
   }
   else {
     cantBuyToast();
-}
+  }
 }
 
 function cantBuyToast(){ //if you cannot afford something toast pops up
@@ -57,8 +69,6 @@ function cantBuyToast(){ //if you cannot afford something toast pops up
 
 // ADD A FUNCTION TO UPDATE EFFICIENCY AND PRICES EVERY SECOND/2 SECONDS
 function efficiency(x,y){
-  console.log("this is the efficiency"+x*y);
-  console.log("this is worker gain"+worker_money_gain);
   return(x*y); // money gain times efficiency
 }
 
@@ -89,9 +99,12 @@ function side_loop(){
 function update_stuff(){
   document.getElementById("gamebar-money").innerHTML = fixed_money;
   document.getElementById("gamebar-mps").innerHTML = money_per_second;
-  document.getElementById('worker_cost').innerHTML = js_worker_cost;
-  document.getElementById('gamebar-prod').innerHTML = (worker_efficiency*100);
-  console.log("money: "+money)
+  document.getElementById('worker_cost').innerHTML = autos.worker.price;
+  document.getElementById('office_manager_cost').innerHTML = autos.manager.price;
+  document.getElementById('operations_manager_cost').innerHTML = autos.opmanager.price;
+  document.getElementById('ceo_cost').innerHTML = autos.ceo.price;
+  document.getElementById('gamebar-prod').innerHTML = (autos.worker.efficiency*100);
+  // things with 
 }
 
 function addMoney(){
