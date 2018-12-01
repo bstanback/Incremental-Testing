@@ -35,7 +35,7 @@ app.use('/public', express.static(__dirname + '/public'));
 app.get('/', function (req, res) {
   // '/' any page ending with '/' gets routed to the function
   // req = request for the page, res = the response
-  res.status(200).sendFile(__dirname + '/index.html');
+  res.status(200).sendFile(__dirname + '/new_index.html');
 
 });
 
